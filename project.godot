@@ -81,7 +81,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-CharacterData="*res://character_data.gd"
+CharacterData="*res://global_vars/character_data.gd"
 
 [display]
 

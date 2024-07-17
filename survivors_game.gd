@@ -3,19 +3,19 @@ extends Node2D
 var current_ammo = 10
 
 func spawn_mob():
-	var new_mob = preload("res://mob.tscn").instantiate()
+	var new_mob = preload("res://characters/slime/mob.tscn").instantiate()
 	%PathFollow2D.progress_ratio = randf()
 	new_mob.global_position = %PathFollow2D.global_position
 	add_child(new_mob)
 	
 func spawn_tree():
-	var new_tree = preload("res://tree.tscn").instantiate()
+	var new_tree = preload("res://map_elements/tree/tree.tscn").instantiate()
 	%PathFollow2D.progress_ratio = randf()
 	new_tree.global_position = %PathFollow2D.global_position
 	add_child(new_tree)
 
 func spawn_rock():
-	var rock = preload("res://rock.tscn").instantiate()
+	var rock = preload("res://map_elements/rock/rock.tscn").instantiate()
 	%PathFollow2D.progress_ratio = randf()
 	rock.global_position = %PathFollow2D.global_position
 	add_child(rock)
