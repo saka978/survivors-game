@@ -19,8 +19,18 @@ func shoot():
 	%ShootingPoint.add_child(new_bullet)
 
 func _on_timer_timeout():
-	if enemy_detected == true && CharacterData.current_ammo != 0:
+	if enemy_detected == true && %ReloadTimeout.is_stopped():
+		if CharacterData.current_ammo == 0:
+			%ReloadTimeout.start()
+			%reload.play()
+			return
+		%gunshot.play()
 		shoot()
 		fire.emit()
 	
 	enemy_detected = false;
+
+
+func _on_reload_timeout_timeout():
+	CharacterData.current_ammo = 10
+	%ReloadTimeout.stop()

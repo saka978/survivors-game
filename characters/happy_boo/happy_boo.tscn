@@ -580,7 +580,6 @@ _data = {
 }
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4ljrx"]
-load_path = "res://.godot/imported/ground_shadow.png-b9267d10ca04362d5b540659e4ab0dbd.ctex"
 
 [node name="HappyBoo" type="Node2D"]
 script = ExtResource("1_kg7lb")

@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cai2ijnbypqtr" path="res://characters/slime/slime_hurt_eyes.png" id="4_hi70h"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4ljrx"]
-load_path = "res://.godot/imported/ground_shadow.png-b9267d10ca04362d5b540659e4ab0dbd.ctex"
 
 [sub_resource type="Animation" id="Animation_y4lve"]
 length = 0.001
