@@ -2,10 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://dvgfmy6vtvjji" path="res://characters/slime/slime_body.png" id="1_3j35h"]
 [ext_resource type="Script" path="res://characters/slime/slime.gd" id="1_87y5x"]
-[ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://characters/ground_shadow.png" id="1_cq7ej"]
 [ext_resource type="Texture2D" uid="uid://c078jrp2yvc4s" path="res://characters/slime/slime_face.png" id="2_ygydt"]
 [ext_resource type="Texture2D" uid="uid://btbxea1f3vwot" path="res://characters/slime/slime_body_hurt.png" id="4_0qu0c"]
 [ext_resource type="Texture2D" uid="uid://cai2ijnbypqtr" path="res://characters/slime/slime_hurt_eyes.png" id="4_hi70h"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4ljrx"]
+load_path = "res://.godot/imported/ground_shadow.png-b9267d10ca04362d5b540659e4ab0dbd.ctex"
 
 [sub_resource type="Animation" id="Animation_y4lve"]
 length = 0.001
@@ -219,7 +221,7 @@ modulate = Color(0.898039, 0.878431, 0.831373, 1)
 z_index = -1
 z_as_relative = false
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("1_cq7ej")
+texture = SubResource("CompressedTexture2D_4ljrx")
 
 [node name="Anchor" type="Marker2D" parent="."]
 

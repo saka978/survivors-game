@@ -4,3 +4,10 @@ res://rock.tscn
 res://characters/slime/slime.tscn
 res://characters/happy_boo/happy_boo.tscn
 res://survivors_game.tscn
+res://characters/slime/slime.gd
+res://characters/happy_boo/player.tscn
+res://map_elements/tree/tree.tscn
+res://map_elements/rock/rock.tscn
+res://characters/slime/mob.tscn
+res://survivors_game.gd
+res://weapons/pistol/gun.gd
