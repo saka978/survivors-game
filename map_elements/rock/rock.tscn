@@ -2,17 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://bqfmcrywsqmot" path="res://map_elements/rock/rock.png" id="1_3ruqo"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m04dd"]
-size = Vector2(24.6032, 48)
+[sub_resource type="CircleShape2D" id="CircleShape2D_3kdat"]
+radius = 23.4307
 
-[node name="Rock" type="Area2D"]
-scale = Vector2(1.52, 1.52)
+[node name="StaticBody2D" type="StaticBody2D"]
 
-[node name="Rock" type="Sprite2D" parent="."]
-position = Vector2(-2, -4)
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_3ruqo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -5)
-scale = Vector2(2.52, 1)
-shape = SubResource("RectangleShape2D_m04dd")
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_3kdat")

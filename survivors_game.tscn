@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dovwvwmd44yof"]
+[gd_scene load_steps=9 format=3 uid="uid://dovwvwmd44yof"]
 
 [ext_resource type="Script" path="res://survivors_game.gd" id="1_lt3u8"]
 [ext_resource type="PackedScene" uid="uid://cubvp4xm6vosd" path="res://characters/happy_boo/player.tscn" id="1_mugp1"]
 [ext_resource type="PackedScene" uid="uid://cwvcbb4gc6cth" path="res://map_elements/tree/tree.tscn" id="2_4cp71"]
 [ext_resource type="PackedScene" uid="uid://b5rk4eu70hr6b" path="res://weapons/pistol/gun.tscn" id="2_c24xl"]
+[ext_resource type="AudioStream" uid="uid://obexwgmx5cqt" path="res://assets/audio/slime-dieded.mp3" id="4_v1vwf"]
 [ext_resource type="PackedScene" uid="uid://oc7kvbqac35o" path="res://map_elements/rock/rock.tscn" id="5_pit0a"]
+[ext_resource type="AudioStream" uid="uid://b0m5jp2ud25nx" path="res://assets/audio/background.mp3" id="7_w3hhl"]
 
 [sub_resource type="Curve2D" id="Curve2D_d86yw"]
 _data = {
@@ -50,6 +52,13 @@ unique_name_in_owner = true
 position = Vector2(2378, -164)
 rotation = 1.57529
 scale = Vector2(-45.2157, 63.0149)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="Player"]
+unique_name_in_owner = true
+position = Vector2(-866, -603)
+stream = ExtResource("7_w3hhl")
+volume_db = -11.934
+autoplay = true
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
@@ -114,6 +123,12 @@ position = Vector2(969, 279)
 
 [node name="Rock5" parent="." instance=ExtResource("5_pit0a")]
 position = Vector2(1688, 968)
+
+[node name="SlimeDeath" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(866, 603)
+stream = ExtResource("4_v1vwf")
+pitch_scale = 1.88
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="fire" from="Player/Gun" to="." method="_on_gun_fire"]

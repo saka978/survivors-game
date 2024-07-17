@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5rk4eu70hr6b"]
+[gd_scene load_steps=6 format=3 uid="uid://b5rk4eu70hr6b"]
 
 [ext_resource type="Texture2D" uid="uid://cswb5do8rrj7q" path="res://weapons/pistol/pistol.png" id="1_3sx44"]
 [ext_resource type="Script" path="res://weapons/pistol/gun.gd" id="1_imrbp"]
+[ext_resource type="AudioStream" uid="uid://bysq0utj7013y" path="res://assets/audio/gunshot.mp3" id="3_oewbs"]
+[ext_resource type="AudioStream" uid="uid://csol7l6u71x07" path="res://assets/audio/pistol-reload.mp3" id="4_6vaue"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xwdwl"]
 radius = 426.117
@@ -28,4 +30,18 @@ position = Vector2(25, -11)
 wait_time = 0.3
 autostart = true
 
+[node name="gunshot" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_oewbs")
+volume_db = -9.989
+
+[node name="ReloadTimeout" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.0
+
+[node name="reload" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_6vaue")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="ReloadTimeout" to="." method="_on_reload_timeout_timeout"]

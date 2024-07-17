@@ -1,11 +1,10 @@
 extends Node2D
 
-var current_ammo = 10
-
 func spawn_mob():
 	var new_mob = preload("res://characters/slime/mob.tscn").instantiate()
 	%PathFollow2D.progress_ratio = randf()
 	new_mob.global_position = %PathFollow2D.global_position
+	new_mob.slime_death.connect(play_slime_death)
 	add_child(new_mob)
 	
 func spawn_tree():
@@ -33,4 +32,6 @@ func _on_player_health_depleted():
 func _on_gun_fire():
 	CharacterData.current_ammo -= 1
 	%AmmoLabel.text = "Ammo: " + str(CharacterData.current_ammo)
-	pass
+	
+func play_slime_death():
+	%SlimeDeath.play()
