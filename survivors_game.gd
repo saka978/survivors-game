@@ -59,9 +59,10 @@ func _on_gun_fire():
 	%AmmoLabel.text = "Ammo: " + str(CharacterData.current_ammo)
 	
 func play_slime_death(position: Vector2):
-	var heart_up = preload("res://map_elements/heart_up/heart_up.tscn").instantiate()
-	heart_up.position = position
-	add_child(heart_up)
+	if randi() % 100 < InterractablesConfig.HEART_UP_CHANCE:
+		var heart_up = preload("res://map_elements/heart_up/heart_up.tscn").instantiate()
+		heart_up.position = position
+		add_child(heart_up)
 	%SlimeDeath.play()
 
 func _on_restart_button_pressed():
@@ -69,7 +70,6 @@ func _on_restart_button_pressed():
 	pauseMenu()
 	Engine.time_scale = 1
 	CharacterData.reset()
-
 
 func _on_quit_button_pressed():
 	get_tree().quit()
