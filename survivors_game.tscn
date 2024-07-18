@@ -48,21 +48,22 @@ offset_bottom = 678.0
 text = "Restart"
 
 [node name="QuitButton" type="Button" parent="EscapeMenu/ColorRect"]
+layout_mode = 0
 offset_left = 745.0
 offset_top = 697.0
 offset_right = 1068.0
 offset_bottom = 799.0
 text = "Quit"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="AmmoLabel" type="CanvasLayer" parent="."]
 layer = -30
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="AmmoLabel"]
 offset_right = 1914.0
 offset_bottom = 1077.0
 color = Color(0.188235, 0.411765, 0, 1)
 
-[node name="AmmoLabel" type="Label" parent="CanvasLayer"]
+[node name="AmmoLabel" type="Label" parent="AmmoLabel"]
 unique_name_in_owner = true
 anchors_preset = 2
 anchor_top = 1.0
@@ -96,7 +97,7 @@ stream = ExtResource("7_w3hhl")
 volume_db = -11.934
 autoplay = true
 
-[node name="Timer" type="Timer" parent="."]
+[node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
 
 [node name="GameOver" type="CanvasLayer" parent="."]
@@ -111,7 +112,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.513726)
 
-[node name="Label" type="Label" parent="GameOver/ColorRect"]
+[node name="LabelGameOver" type="Label" parent="GameOver/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -178,5 +179,5 @@ pitch_scale = 1.88
 [connection signal="pressed" from="EscapeMenu/ColorRect/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="fire" from="Player/Gun" to="." method="_on_gun_fire"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="GameOver/ColorRect/RestartButton" to="." method="_on_restart_button_pressed"]

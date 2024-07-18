@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuqa2ekju8rb7"]
+
+[ext_resource type="Texture2D" uid="uid://ukchhkyjq8px" path="res://map_elements/heart_up/heart.png" id="1_4fss6"]
+[ext_resource type="Script" path="res://map_elements/heart_up/heart_up.gd" id="1_xm5bv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mva5h"]
+
+[node name="HeartUp" type="Area2D" groups=["heart_up"]]
+scale = Vector2(0.277723, 0.277723)
+script = ExtResource("1_xm5bv")
+
+[node name="HeartIcon" type="Sprite2D" parent="."]
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("1_4fss6")
+
+[node name="PickupArea" type="CollisionShape2D" parent="."]
+rotation = -3.14159
+scale = Vector2(4.49353, 4.44772)
+shape = SubResource("CircleShape2D_mva5h")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

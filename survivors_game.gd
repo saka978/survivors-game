@@ -12,7 +12,7 @@ func spawn_mob():
 	new_mob.global_position = %PathFollow2D.global_position
 	new_mob.slime_death.connect(play_slime_death)
 	add_child(new_mob)
-	
+
 func spawn_tree():
 	var new_tree = preload("res://map_elements/tree/tree.tscn").instantiate()
 	%PathFollow2D.progress_ratio = randf()
@@ -54,20 +54,21 @@ func _on_player_health_depleted():
 	%GameOver.visible = true
 	Engine.time_scale = 0
 
-
 func _on_gun_fire():
 	CharacterData.current_ammo -= 1
 	%AmmoLabel.text = "Ammo: " + str(CharacterData.current_ammo)
 	
-func play_slime_death():
+func play_slime_death(position: Vector2):
+	var heart_up = preload("res://map_elements/heart_up/heart_up.tscn").instantiate()
+	heart_up.position = position
+	add_child(heart_up)
 	%SlimeDeath.play()
-
 
 func _on_restart_button_pressed():
 	get_tree().reload_current_scene()
 	pauseMenu()
 	Engine.time_scale = 1
-	CharacterData.current_ammo = 10
+	CharacterData.reset()
 
 
 func _on_quit_button_pressed():

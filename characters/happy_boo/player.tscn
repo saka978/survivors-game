@@ -23,7 +23,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_odkaa")
 
 [node name="HappyBoo" parent="." instance=ExtResource("1_veyi0")]
