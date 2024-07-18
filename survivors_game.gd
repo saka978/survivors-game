@@ -1,5 +1,11 @@
 extends Node2D
 
+var paused = false
+
+func _physics_process(delta):
+	if Input.is_action_just_pressed("esc_menu"):
+		escapeMenu()
+
 func spawn_mob():
 	var new_mob = preload("res://characters/slime/mob.tscn").instantiate()
 	%PathFollow2D.progress_ratio = randf()
@@ -18,6 +24,26 @@ func spawn_rock():
 	%PathFollow2D.progress_ratio = randf()
 	rock.global_position = %PathFollow2D.global_position
 	add_child(rock)
+	
+func pauseMenu():
+	if paused:
+		%GameOver.hide()
+		Engine.time_scale = 1
+	else:
+		%GameOver.show()
+		Engine.time_scale = 0
+		
+	paused = !paused
+	
+func escapeMenu():
+	if paused:
+		%EscapeMenu.hide()
+		Engine.time_scale = 1
+	else:
+		%EscapeMenu.show()
+		Engine.time_scale = 0
+		
+	paused = !paused
 
 func _on_timer_timeout():
 	spawn_mob()
@@ -26,7 +52,7 @@ func _on_timer_timeout():
 
 func _on_player_health_depleted():
 	%GameOver.visible = true
-	get_tree().paused = true
+	Engine.time_scale = 0
 
 
 func _on_gun_fire():
@@ -35,3 +61,14 @@ func _on_gun_fire():
 	
 func play_slime_death():
 	%SlimeDeath.play()
+
+
+func _on_restart_button_pressed():
+	get_tree().reload_current_scene()
+	pauseMenu()
+	Engine.time_scale = 1
+	CharacterData.current_ammo = 10
+
+
+func _on_quit_button_pressed():
+	get_tree().quit()
