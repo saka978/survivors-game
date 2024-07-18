@@ -2,6 +2,7 @@ extends Node
 
 const MAX_HEALTH = 100
 const MAX_AMMO = 10
+const SPEED = 600.0
 
 var current_ammo = 10
 var current_health = 100
