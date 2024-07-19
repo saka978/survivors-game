@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnf6gq6at16ry"]
+
+[ext_resource type="Script" path="res://weapons/scalpel/scalpel.gd" id="1_2momu"]
+[ext_resource type="Texture2D" uid="uid://bk8j3qv78s3e4" path="res://weapons/scalpel/scalpel.png" id="1_if3b3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08bn7"]
+size = Vector2(6, 57)
+
+[sub_resource type="Animation" id="Animation_lpvnr"]
+resource_name = "stab"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.5, 0), Vector2(1.5, -20)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q8i6j"]
+_data = {
+"stab": SubResource("Animation_lpvnr")
+}
+
+[node name="Scalpel" type="Area2D"]
+script = ExtResource("1_2momu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 2.64728
+scale = Vector2(0.0684982, 0.0684982)
+texture = ExtResource("1_if3b3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_08bn7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_q8i6j")
+}
+
+[node name="StabFrequency" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="StabFrequency" to="." method="_on_stab_frequency_timeout"]
