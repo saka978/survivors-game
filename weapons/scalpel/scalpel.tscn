@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnf6gq6at16ry"]
+[gd_scene load_steps=8 format=3 uid="uid://3jtvv3rfvujv"]
 
 [ext_resource type="Script" path="res://weapons/scalpel/scalpel.gd" id="1_2momu"]
 [ext_resource type="Texture2D" uid="uid://bk8j3qv78s3e4" path="res://weapons/scalpel/scalpel.png" id="1_if3b3"]
+[ext_resource type="AudioStream" uid="uid://g0dt1byefcfg" path="res://assets/audio/mele.mp3" id="3_j603o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_08bn7"]
 size = Vector2(6, 57)
@@ -11,26 +12,26 @@ resource_name = "stab"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("Marker2D/StabArea/Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.4),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -20)]
+"values": [Vector2(0, 0), Vector2(0, -20), Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/path = NodePath("Marker2D/StabArea/CollisionShape2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.1, 0.4),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1.5, 0), Vector2(1.5, -20)]
+"values": [Vector2(1.5, 0), Vector2(1.5, -20), Vector2(1.5, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q8i6j"]
@@ -38,25 +39,64 @@ _data = {
 "stab": SubResource("Animation_lpvnr")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_njtly"]
+
 [node name="Scalpel" type="Area2D"]
+position = Vector2(837, 444)
+rotation = 1.56868
+scale = Vector2(1.87728, 1.87728)
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_2momu")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Marker2D" type="Marker2D" parent="."]
+light_mask = 0
+visibility_layer = 2
+rotation = 1.25506
+scale = Vector2(1, 1)
+
+[node name="StabArea" type="Area2D" parent="Marker2D"]
+light_mask = 0
+visibility_layer = 2
+position = Vector2(1.52588e-05, -78.3047)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/StabArea"]
+unique_name_in_owner = true
+light_mask = 0
+visibility_layer = 2
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_08bn7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D/StabArea"]
+light_mask = 0
+visibility_layer = 2
 rotation = 2.64728
 scale = Vector2(0.0684982, 0.0684982)
 texture = ExtResource("1_if3b3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, 0)
-shape = SubResource("RectangleShape2D_08bn7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_q8i6j")
 }
+speed_scale = 1.897
 
 [node name="StabFrequency" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.6
+autostart = true
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
+visibility_layer = 2
+scale = Vector2(14.9777, 14.9777)
+shape = SubResource("CircleShape2D_njtly")
+
+[node name="StabSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_j603o")
+pitch_scale = 1.5
+
+[connection signal="body_entered" from="Marker2D/StabArea" to="." method="_on_stab_area_body_entered"]
 [connection signal="timeout" from="StabFrequency" to="." method="_on_stab_frequency_timeout"]
