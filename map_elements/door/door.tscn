@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2ul1nkfkns26"]
+
+[ext_resource type="Texture2D" uid="uid://cfc2d2nq4honr" path="res://map_elements/door/portal.png" id="1_mqfsp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ak3a6"]
+radius = 27.6586
+
+[node name="Portal" type="Area2D"]
+scale = Vector2(1.90878, 1.90878)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mqfsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+scale = Vector2(1.23672, 1.81956)
+shape = SubResource("CircleShape2D_ak3a6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
