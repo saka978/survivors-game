@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://4p1wg10diyk4"]
+[gd_scene load_steps=10 format=3 uid="uid://cmwvpyvkj05rf"]
 
-[ext_resource type="Script" path="res://areas/home/home.gd" id="1_hxtpk"]
-[ext_resource type="PackedScene" uid="uid://cubvp4xm6vosd" path="res://characters/happy_boo/player.tscn" id="2_hmadb"]
-[ext_resource type="PackedScene" uid="uid://b5rk4eu70hr6b" path="res://weapons/pistol/gun.tscn" id="3_pgtrf"]
-[ext_resource type="AudioStream" uid="uid://b0m5jp2ud25nx" path="res://assets/audio/background.mp3" id="4_vmskm"]
-[ext_resource type="AudioStream" uid="uid://obexwgmx5cqt" path="res://assets/audio/slime-dieded.mp3" id="5_irrlu"]
-[ext_resource type="PackedScene" uid="uid://d2ul1nkfkns26" path="res://map_elements/door/door.tscn" id="6_8h0ms"]
+[ext_resource type="Script" path="res://areas/first_level/level_1.gd" id="1_ji3wd"]
+[ext_resource type="PackedScene" uid="uid://cubvp4xm6vosd" path="res://characters/happy_boo/player.tscn" id="2_nokya"]
+[ext_resource type="AudioStream" uid="uid://b0m5jp2ud25nx" path="res://assets/audio/background.mp3" id="4_qb6kj"]
+[ext_resource type="PackedScene" uid="uid://3jtvv3rfvujv" path="res://weapons/scalpel/scalpel.tscn" id="4_un74a"]
+[ext_resource type="PackedScene" uid="uid://cwvcbb4gc6cth" path="res://map_elements/tree/tree.tscn" id="5_o2vlo"]
+[ext_resource type="PackedScene" uid="uid://oc7kvbqac35o" path="res://map_elements/rock/rock.tscn" id="6_ltlhe"]
+[ext_resource type="AudioStream" uid="uid://obexwgmx5cqt" path="res://assets/audio/slime-dieded.mp3" id="7_i14ga"]
+[ext_resource type="PackedScene" uid="uid://d2ul1nkfkns26" path="res://map_elements/door/door.tscn" id="8_pr4b8"]
 
 [sub_resource type="Curve2D" id="Curve2D_d86yw"]
 _data = {
@@ -13,9 +15,9 @@ _data = {
 }
 point_count = 8
 
-[node name="Game2" type="Node2D"]
+[node name="Game" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_hxtpk")
+script = ExtResource("1_ji3wd")
 
 [node name="EscapeMenu" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -60,7 +62,7 @@ layer = -30
 [node name="ColorRect" type="ColorRect" parent="AmmoLabel"]
 offset_right = 1914.0
 offset_bottom = 1077.0
-color = Color(0.537255, 0.262745, 0.0117647, 1)
+color = Color(0.188235, 0.411765, 0, 1)
 
 [node name="AmmoLabel" type="Label" parent="AmmoLabel"]
 unique_name_in_owner = true
@@ -73,11 +75,8 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 50
 text = "Ammo: 10"
 
-[node name="Player" parent="." instance=ExtResource("2_hmadb")]
+[node name="Player" parent="." instance=ExtResource("2_nokya")]
 position = Vector2(866, 603)
-
-[node name="Gun" parent="Player" instance=ExtResource("3_pgtrf")]
-position = Vector2(0, -47)
 
 [node name="Path2D" type="Path2D" parent="Player"]
 position = Vector2(-866, -603)
@@ -92,9 +91,13 @@ scale = Vector2(-45.2157, 63.0149)
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="Player"]
 unique_name_in_owner = true
 position = Vector2(-866, -603)
-stream = ExtResource("4_vmskm")
+stream = ExtResource("4_qb6kj")
 volume_db = -11.934
 autoplay = true
+
+[node name="Scalpel" parent="Player" instance=ExtResource("4_un74a")]
+position = Vector2(-4, -47)
+rotation = 4.0373
 
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
@@ -135,19 +138,52 @@ offset_right = 1071.0
 offset_bottom = 777.0
 text = "Restart"
 
+[node name="Tree" parent="." instance=ExtResource("5_o2vlo")]
+position = Vector2(332, 858)
+
+[node name="Tree2" parent="." instance=ExtResource("5_o2vlo")]
+position = Vector2(167, 246)
+
+[node name="Tree3" parent="." instance=ExtResource("5_o2vlo")]
+position = Vector2(634, 465)
+
+[node name="Tree4" parent="." instance=ExtResource("5_o2vlo")]
+position = Vector2(1329, 881)
+
+[node name="Tree5" parent="." instance=ExtResource("5_o2vlo")]
+position = Vector2(1332, 296)
+
+[node name="Tree6" parent="." instance=ExtResource("5_o2vlo")]
+position = Vector2(1656, 601)
+
+[node name="Rock" parent="." instance=ExtResource("6_ltlhe")]
+position = Vector2(415, 620)
+
+[node name="Rock2" parent="." instance=ExtResource("6_ltlhe")]
+position = Vector2(1111, 941)
+
+[node name="Rock3" parent="." instance=ExtResource("6_ltlhe")]
+position = Vector2(1272, 535)
+
+[node name="Rock4" parent="." instance=ExtResource("6_ltlhe")]
+position = Vector2(969, 279)
+
+[node name="Rock5" parent="." instance=ExtResource("6_ltlhe")]
+position = Vector2(1688, 968)
+
 [node name="SlimeDeath" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(866, 603)
-stream = ExtResource("5_irrlu")
+stream = ExtResource("7_i14ga")
 pitch_scale = 1.88
 
-[node name="Portal" parent="." instance=ExtResource("6_8h0ms")]
-position = Vector2(1044, 540)
+[node name="Door" parent="." instance=ExtResource("8_pr4b8")]
+position = Vector2(1069, 538)
+scale = Vector2(1.62273, 1.46818)
 
 [connection signal="pressed" from="EscapeMenu/ColorRect/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="EscapeMenu/ColorRect/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
-[connection signal="fire" from="Player/Gun" to="." method="_on_gun_fire"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="GameOver/ColorRect/RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="body_entered" from="Portal" to="." method="_on_portal_body_entered"]
+[connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]
