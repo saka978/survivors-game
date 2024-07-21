@@ -5,6 +5,9 @@ signal fire
 var enemy_detected = false
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("reload"):
+		reload()
+		return
 	var enemies_in_range = get_overlapping_bodies()
 	if enemies_in_range.size() > 0:
 		var target_enemy = enemies_in_range.front()
@@ -21,8 +24,7 @@ func shoot():
 func _on_timer_timeout():
 	if enemy_detected == true && %ReloadTimeout.is_stopped():
 		if CharacterData.current_ammo == 0:
-			%ReloadTimeout.start()
-			%reload.play()
+			reload()
 			return
 		%gunshot.play()
 		CharacterData.current_ammo -= 1
@@ -30,6 +32,11 @@ func _on_timer_timeout():
 		fire.emit()
 	
 	enemy_detected = false;
+	
+func reload():
+	if CharacterData.current_ammo != 10 && %ReloadTimeout.time_left == 0.0:
+		%ReloadTimeout.start()
+		%reload.play()
 
 func _on_reload_timeout_timeout():
 	CharacterData.current_ammo = 10
