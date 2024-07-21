@@ -9,6 +9,7 @@
 radius = 426.117
 
 [node name="Gun" type="Area2D"]
+position = Vector2(0, -43)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_imrbp")

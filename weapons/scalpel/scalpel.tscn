@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://3jtvv3rfvujv"]
 
 [ext_resource type="Script" path="res://weapons/scalpel/scalpel.gd" id="1_2momu"]
-[ext_resource type="Texture2D" uid="uid://bk8j3qv78s3e4" path="res://weapons/scalpel/scalpel.png" id="1_if3b3"]
+[ext_resource type="Texture2D" uid="uid://yohqlxihn8ux" path="res://weapons/scalpel/scalpel.png" id="1_if3b3"]
 [ext_resource type="AudioStream" uid="uid://g0dt1byefcfg" path="res://assets/audio/mele.mp3" id="3_j603o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_08bn7"]
@@ -42,7 +42,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_njtly"]
 
 [node name="Scalpel" type="Area2D"]
-position = Vector2(837, 444)
+position = Vector2(1.90735e-06, -40)
 rotation = 1.56868
 scale = Vector2(1.87728, 1.87728)
 collision_layer = 0
@@ -52,7 +52,7 @@ script = ExtResource("1_2momu")
 [node name="Marker2D" type="Marker2D" parent="."]
 light_mask = 0
 visibility_layer = 2
-rotation = 1.36436
+rotation = 1.53199
 
 [node name="StabArea" type="Area2D" parent="Marker2D"]
 light_mask = 0
@@ -66,12 +66,13 @@ unique_name_in_owner = true
 light_mask = 0
 visibility_layer = 2
 position = Vector2(1.5, 0)
+scale = Vector2(1.60622, 1.11007)
 shape = SubResource("RectangleShape2D_08bn7")
 
 [node name="Sprite2D" type="Sprite2D" parent="Marker2D/StabArea"]
 light_mask = 0
 visibility_layer = 2
-rotation = 2.64728
+rotation = 0.0355719
 scale = Vector2(0.0684982, 0.0684982)
 texture = ExtResource("1_if3b3")
 
