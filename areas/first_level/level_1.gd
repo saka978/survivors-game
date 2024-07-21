@@ -1,10 +1,30 @@
 extends Node2D
 
 var paused = false
+var pistol = preload("res://weapons/pistol/gun.tscn")
+var scalpel = preload("res://weapons/scalpel/scalpel.tscn")
+var current_weapon = null
+
+@onready var player = $Player
+
+func _ready():
+	current_weapon = pistol.instantiate()
+	player.add_child(current_weapon)
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("esc_menu"):
 		escapeMenu()
+	elif Input.is_action_just_pressed("weapon_1"):
+		switch_weapon(pistol)
+	elif Input.is_action_just_pressed("weapon_2"):
+		switch_weapon(scalpel)
+
+func switch_weapon(new_weapon_scene):
+	if current_weapon:
+		player.remove_child(current_weapon)
+		current_weapon.queue_free()
+	current_weapon = new_weapon_scene.instantiate()
+	player.add_child(current_weapon)
 
 func spawn_mob():
 	var new_mob = preload("res://characters/slime/mob.tscn").instantiate()
@@ -75,7 +95,6 @@ func _on_restart_button_pressed():
 
 func _on_quit_button_pressed():
 	get_tree().quit()
-
 
 func _on_door_body_entered(body):
 	var current_scene_file = get_tree().current_scene.scene_file_path
