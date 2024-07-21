@@ -52,13 +52,12 @@ script = ExtResource("1_2momu")
 [node name="Marker2D" type="Marker2D" parent="."]
 light_mask = 0
 visibility_layer = 2
-rotation = 1.25506
-scale = Vector2(1, 1)
+rotation = 1.36436
 
 [node name="StabArea" type="Area2D" parent="Marker2D"]
 light_mask = 0
 visibility_layer = 2
-position = Vector2(1.52588e-05, -78.3047)
+position = Vector2(-2.87131, -61.0453)
 collision_layer = 0
 collision_mask = 2
 
@@ -87,10 +86,11 @@ speed_scale = 1.897
 wait_time = 0.6
 autostart = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="DetectionArea" type="CollisionShape2D" parent="."]
 light_mask = 0
 visibility_layer = 2
-scale = Vector2(14.9777, 14.9777)
+rotation = 0.109305
+scale = Vector2(9.1339, 9.1339)
 shape = SubResource("CircleShape2D_njtly")
 
 [node name="StabSound" type="AudioStreamPlayer" parent="."]
@@ -98,5 +98,8 @@ unique_name_in_owner = true
 stream = ExtResource("3_j603o")
 pitch_scale = 1.5
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="body_entered" from="Marker2D/StabArea" to="." method="_on_stab_area_body_entered"]
+[connection signal="body_exited" from="Marker2D/StabArea" to="." method="_on_stab_area_body_exited"]
 [connection signal="timeout" from="StabFrequency" to="." method="_on_stab_frequency_timeout"]

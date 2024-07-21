@@ -15,10 +15,11 @@ func _physics_process(delta):
 		
 	const DAMAGE_RATE = EnemyConfig.SLIME_DAMAGE
 	
-	var overlapping_mobs = %HurtBox.get_overlapping_bodies()
-	if overlapping_mobs.size() > 0:
-		if CharacterData.current_health <= 0.0:
-			health_depleted.emit()
-		else:
-			CharacterData.current_health -= DAMAGE_RATE * overlapping_mobs.size() * delta
-			%ProgressBar.value = CharacterData.current_health
+	if !CharacterData.IS_INVINCIBLE:
+		var overlapping_mobs = %HurtBox.get_overlapping_bodies()
+		if overlapping_mobs.size() > 0:
+			if CharacterData.current_health <= 0.0:
+				health_depleted.emit()
+			else:
+				CharacterData.current_health -= DAMAGE_RATE * overlapping_mobs.size() * delta
+				%ProgressBar.value = CharacterData.current_health

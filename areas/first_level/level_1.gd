@@ -11,6 +11,8 @@ func spawn_mob():
 	%PathFollow2D.progress_ratio = randf()
 	new_mob.global_position = %PathFollow2D.global_position
 	new_mob.slime_death.connect(play_slime_death)
+	new_mob.ID = EnemyConfig.ID
+	EnemyConfig.ID += 1
 	add_child(new_mob)
 
 func spawn_tree():
