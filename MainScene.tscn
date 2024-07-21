@@ -92,6 +92,16 @@ offset_right = 1071.0
 offset_bottom = 777.0
 text = "Restart"
 
+[node name="GoalHud" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="GoalLabel" type="Label" parent="GoalHud"]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 50
+text = "Slimes Killed: 0 / 30"
+
 [node name="SceneLoader" type="Node2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(93, -63)

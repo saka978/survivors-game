@@ -10,7 +10,7 @@ var current_weapon = null
 var level_instance
 
 func _ready():
-	load_level("level_1")
+	load_level("home")
 	current_weapon = pistol.instantiate()
 	%Player.add_child(current_weapon)
 	%AmmoLabel.show()
