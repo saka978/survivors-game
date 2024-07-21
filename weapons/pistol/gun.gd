@@ -25,11 +25,11 @@ func _on_timer_timeout():
 			%reload.play()
 			return
 		%gunshot.play()
+		CharacterData.current_ammo -= 1
 		shoot()
 		fire.emit()
 	
 	enemy_detected = false;
-
 
 func _on_reload_timeout_timeout():
 	CharacterData.current_ammo = 10
