@@ -4,7 +4,7 @@ var health = EnemyConfig.SLIME_MAX_HEALTH
 var ID
 
 signal slime_death(position: Vector2)
-@onready var player = get_node("/root/Game/Player")
+@onready var player = get_node("/root/MainScene/SceneLoader/Player")
 
 func _ready():
 	%Slime.play_walk()
