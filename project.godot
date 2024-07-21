@@ -84,6 +84,7 @@ config/icon="res://icon.png"
 CharacterData="*res://config/character_config.gd"
 EnemyConfig="*res://config/enemy_config.gd"
 InterractablesConfig="*res://config/interractables_config.gd"
+ObjectivesConfig="*res://config/objectives_config.gd"
 
 [display]
 

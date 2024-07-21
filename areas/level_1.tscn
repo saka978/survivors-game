@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dovwvwmd44yof"]
+[gd_scene load_steps=4 format=3 uid="uid://dovwvwmd44yof"]
 
 [ext_resource type="Script" path="res://areas/first_level/level_1.gd" id="1_fkmyj"]
 [ext_resource type="PackedScene" uid="uid://cwvcbb4gc6cth" path="res://map_elements/tree/tree.tscn" id="4_qwoip"]
-[ext_resource type="PackedScene" uid="uid://oc7kvbqac35o" path="res://map_elements/rock/rock.tscn" id="5_t46fg"]
 [ext_resource type="AudioStream" uid="uid://obexwgmx5cqt" path="res://assets/audio/slime-dieded.mp3" id="6_06b38"]
-[ext_resource type="PackedScene" uid="uid://d2ul1nkfkns26" path="res://map_elements/door/door.tscn" id="7_qcdy8"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -21,48 +19,17 @@ color = Color(0.188235, 0.411765, 0, 1)
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="Tree" parent="." instance=ExtResource("4_qwoip")]
-position = Vector2(332, 858)
-
-[node name="Tree2" parent="." instance=ExtResource("4_qwoip")]
-position = Vector2(167, 246)
-
-[node name="Tree3" parent="." instance=ExtResource("4_qwoip")]
-position = Vector2(634, 465)
-
-[node name="Tree4" parent="." instance=ExtResource("4_qwoip")]
-position = Vector2(1329, 881)
-
-[node name="Tree5" parent="." instance=ExtResource("4_qwoip")]
-position = Vector2(1332, 296)
-
-[node name="Tree6" parent="." instance=ExtResource("4_qwoip")]
-position = Vector2(1656, 601)
-
-[node name="Rock" parent="." instance=ExtResource("5_t46fg")]
-position = Vector2(415, 620)
-
-[node name="Rock2" parent="." instance=ExtResource("5_t46fg")]
-position = Vector2(1111, 941)
-
-[node name="Rock3" parent="." instance=ExtResource("5_t46fg")]
-position = Vector2(1272, 535)
-
-[node name="Rock4" parent="." instance=ExtResource("5_t46fg")]
-position = Vector2(969, 279)
-
-[node name="Rock5" parent="." instance=ExtResource("5_t46fg")]
-position = Vector2(1688, 968)
-
 [node name="SlimeDeath" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(866, 603)
 stream = ExtResource("6_06b38")
 pitch_scale = 1.88
 
-[node name="Door" parent="." instance=ExtResource("7_qcdy8")]
-position = Vector2(1069, 538)
-scale = Vector2(1.62273, 1.46818)
+[node name="Tree" parent="." instance=ExtResource("4_qwoip")]
+position = Vector2(872, 518)
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(864, 242)
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_timer_timeout"]
-[connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]
