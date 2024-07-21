@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cmwvpyvkj05rf"]
+[gd_scene load_steps=9 format=3 uid="uid://cmwvpyvkj05rf"]
 
 [ext_resource type="Script" path="res://areas/first_level/level_1.gd" id="1_ji3wd"]
 [ext_resource type="PackedScene" uid="uid://cubvp4xm6vosd" path="res://characters/happy_boo/player.tscn" id="2_nokya"]
 [ext_resource type="AudioStream" uid="uid://b0m5jp2ud25nx" path="res://assets/audio/background.mp3" id="4_qb6kj"]
-[ext_resource type="PackedScene" uid="uid://b5rk4eu70hr6b" path="res://weapons/pistol/gun.tscn" id="4_qyj7y"]
 [ext_resource type="PackedScene" uid="uid://cwvcbb4gc6cth" path="res://map_elements/tree/tree.tscn" id="5_o2vlo"]
 [ext_resource type="PackedScene" uid="uid://oc7kvbqac35o" path="res://map_elements/rock/rock.tscn" id="6_ltlhe"]
 [ext_resource type="AudioStream" uid="uid://obexwgmx5cqt" path="res://assets/audio/slime-dieded.mp3" id="7_i14ga"]
@@ -94,8 +93,6 @@ position = Vector2(-866, -603)
 stream = ExtResource("4_qb6kj")
 volume_db = -11.934
 autoplay = true
-
-[node name="Gun" parent="Player" instance=ExtResource("4_qyj7y")]
 
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
