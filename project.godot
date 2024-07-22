@@ -75,7 +75,7 @@ Settings/Show_Tooltips=true
 [application]
 
 config/name="Yet Another Zombie Game"
-run/main_scene="res://areas/level_1.tscn"
+run/main_scene="res://scenes/level_1.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.png"
 
