@@ -23,21 +23,21 @@ func shoot():
 
 func _on_timer_timeout():
 	if enemy_detected == true && %ReloadTimeout.is_stopped():
-		if CharacterData.current_ammo == 0:
+		if WeaponsConfig.current_ammo_pistol == 0:
 			reload()
 			return
 		%gunshot.play()
-		CharacterData.current_ammo -= 1
+		WeaponsConfig.current_ammo_pistol -= 1
 		shoot()
 		fire.emit()
 	
 	enemy_detected = false;
 	
 func reload():
-	if CharacterData.current_ammo != 10 && %ReloadTimeout.time_left == 0.0:
+	if WeaponsConfig.current_ammo_pistol != WeaponsConfig.MAX_AMMO_PISTOL && %ReloadTimeout.time_left == 0.0:
 		%ReloadTimeout.start()
 		%reload.play()
 
 func _on_reload_timeout_timeout():
-	CharacterData.current_ammo = 10
+	WeaponsConfig.current_ammo_pistol = 10
 	%ReloadTimeout.stop()

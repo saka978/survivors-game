@@ -3,9 +3,9 @@ extends CharacterBody2D
 signal health_depleted
 
 func _physics_process(delta):
-	%ProgressBar.value = CharacterData.current_health
+	%ProgressBar.value = CharacterConfig.current_health
 	var direction = Input.get_vector("move_left","move_right","move_up","move_down")
-	velocity = direction * CharacterData.SPEED
+	velocity = direction * CharacterConfig.SPEED
 	move_and_slide()
 	
 	if velocity.length() > 0.0:
@@ -15,11 +15,11 @@ func _physics_process(delta):
 		
 	const DAMAGE_RATE = EnemyConfig.SLIME_DAMAGE
 	
-	if !CharacterData.IS_INVINCIBLE:
+	if !CharacterConfig.IS_INVINCIBLE:
 		var overlapping_mobs = %HurtBox.get_overlapping_bodies()
 		if overlapping_mobs.size() > 0:
-			if CharacterData.current_health <= 0.0:
+			if CharacterConfig.current_health <= 0.0:
 				health_depleted.emit()
 			else:
-				CharacterData.current_health -= DAMAGE_RATE * overlapping_mobs.size() * delta
-				%ProgressBar.value = CharacterData.current_health
+				CharacterConfig.current_health -= DAMAGE_RATE * overlapping_mobs.size() * delta
+				%ProgressBar.value = CharacterConfig.current_health
