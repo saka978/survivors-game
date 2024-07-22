@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=3 uid="uid://dp0ma7w45iqj1"]
+
+[ext_resource type="Texture2D" uid="uid://bd5wksuxmy3ll" path="res://scenes/main_menu/bloody_background.jpg" id="1_n25lq"]
+[ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_r2suq"]
+[ext_resource type="FontFile" uid="uid://bhru7arxodpcv" path="res://scenes/main_menu/Tribal Warfare.ttf" id="2_fcq55"]
+[ext_resource type="AudioStream" uid="uid://blgrinf5wawln" path="res://scenes/main_menu/menu_sound.mp3" id="4_yquvc"]
+
+[node name="MainMenu" type="Node2D"]
+position = Vector2(7.62939e-06, -1.14441e-05)
+scale = Vector2(1.00214, 1.00214)
+script = ExtResource("1_r2suq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BackgroundImage" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(956, 542)
+scale = Vector2(0.639032, 0.541156)
+texture = ExtResource("1_n25lq")
+
+[node name="GameName" type="Label" parent="CanvasLayer/BackgroundImage"]
+offset_left = -646.29
+offset_top = -812.963
+offset_right = 188.71
+offset_bottom = -675.963
+scale = Vector2(1.6484, 1.6484)
+theme_override_fonts/font = ExtResource("2_fcq55")
+theme_override_font_sizes/font_size = 128
+text = "Violence is a cure"
+
+[node name="NewGameButton" type="Button" parent="CanvasLayer/BackgroundImage/GameName"]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 265.0
+offset_right = 454.0
+offset_bottom = 342.0
+scale = Vector2(1.53532, 1.53532)
+theme_override_font_sizes/font_size = 50
+text = "New Game"
+
+[node name="SettingsButton" type="Button" parent="CanvasLayer/BackgroundImage/GameName"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 412.0
+offset_right = 456.0
+offset_bottom = 489.0
+scale = Vector2(1.53353, 1.54787)
+theme_override_font_sizes/font_size = 50
+text = "Settings"
+
+[node name="StatsButton" type="Button" parent="CanvasLayer/BackgroundImage/GameName"]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 568.0
+offset_right = 457.0
+offset_bottom = 645.0
+scale = Vector2(1.53353, 1.54787)
+theme_override_font_sizes/font_size = 50
+text = "Stats"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/BackgroundImage/GameName"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 724.0
+offset_right = 458.0
+offset_bottom = 801.0
+scale = Vector2(1.53353, 1.54787)
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[node name="MenuClickSound" type="AudioStreamPlayer" parent="CanvasLayer"]
+unique_name_in_owner = true
+stream = ExtResource("4_yquvc")
+pitch_scale = 1.08
+
+[connection signal="pressed" from="CanvasLayer/BackgroundImage/GameName/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/BackgroundImage/GameName/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/BackgroundImage/GameName/StatsButton" to="." method="_on_stats_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/BackgroundImage/GameName/QuitButton" to="." method="_on_quit_button_pressed"]

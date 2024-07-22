@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://MainScene.gd" id="1_ce0tq"]
 [ext_resource type="PackedScene" uid="uid://cubvp4xm6vosd" path="res://characters/happy_boo/player.tscn" id="2_bg6cf"]
-[ext_resource type="AudioStream" uid="uid://b0m5jp2ud25nx" path="res://assets/audio/background.mp3" id="3_4snah"]
+[ext_resource type="AudioStream" uid="uid://5liv1jbo4vma" path="res://assets/audio/background-new.mp3" id="3_bwk3v"]
 
 [sub_resource type="Curve2D" id="Curve2D_eomd7"]
 _data = {
@@ -122,10 +122,9 @@ scale = Vector2(-45.2157, 63.0149)
 
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="SceneLoader/Player"]
 unique_name_in_owner = true
-position = Vector2(-866, -603)
-stream = ExtResource("3_4snah")
-volume_db = -11.934
-autoplay = true
+position = Vector2(-959, -538)
+stream = ExtResource("3_bwk3v")
+volume_db = -9.124
 
 [node name="AmmoLabel" type="Label" parent="SceneLoader/Player"]
 unique_name_in_owner = true
@@ -140,6 +139,9 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 50
 text = "Ammo: 10"
 
+[node name="SoundEffects" type="AudioStreamPlayer" parent="SceneLoader/Player"]
+
 [connection signal="pressed" from="EscapeMenu/ColorRect/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="EscapeMenu/ColorRect/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="GameOver/ColorRect/RestartButtonGameOver" to="." method="_on_restart_button_game_over_pressed"]
+[connection signal="health_depleted" from="SceneLoader/Player" to="." method="_on_player_health_depleted"]
