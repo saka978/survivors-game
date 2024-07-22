@@ -15,6 +15,7 @@ var spawned_mobs = []
 
 func _ready():
 	ObjectivesConfig.resetObjectives()
+	WeaponsConfig.reset()
 	player.global_position = %SpawnPoint.global_position
 	goal_hud.show()
 	goal_label.text = "Slimes Killed: %d / %d" % [ObjectivesConfig.LEVEL_1_SLIME_COUNTER, ObjectivesConfig.LEVEL_1_SLIMES]

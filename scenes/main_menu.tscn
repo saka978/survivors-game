@@ -13,8 +13,8 @@ script = ExtResource("1_r2suq")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="BackgroundImage" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(956, 542)
-scale = Vector2(0.639032, 0.541156)
+position = Vector2(967.791, 541.5)
+scale = Vector2(0.651619, 0.5515)
 texture = ExtResource("1_n25lq")
 
 [node name="GameName" type="Label" parent="CanvasLayer/BackgroundImage"]

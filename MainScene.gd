@@ -26,7 +26,7 @@ func _physics_process(delta):
 		switch_weapon(scalpel)
 		%AmmoLabel.hide()
 		
-	%AmmoLabel.text = "Ammo: " + str(CharacterData.current_ammo)
+	%AmmoLabel.text = "Ammo: " + str(WeaponsConfig.current_ammo_pistol)
 
 func unload_level():
 	if(is_instance_valid(level_instance)):
@@ -78,11 +78,12 @@ func pauseMenu():
 	paused = !paused
 	
 func _on_gun_fire():
-	CharacterData.current_ammo -= 1
-	%AmmoLabel.text = "Ammo: " + str(CharacterData.current_ammo)
+	WeaponsConfig.current_ammo_pistol -= 1
+	%AmmoLabel.text = "Ammo: " + str(WeaponsConfig.current_ammo_pistol)
 
 func _on_restart_button_pressed():
-	CharacterData.reset()
+	CharacterConfig.reset()
+	WeaponsConfig.reset()
 	unload_level()
 	load_level(current_level_name)
 	escapeMenu()
@@ -92,7 +93,8 @@ func _on_quit_button_pressed():
 	get_tree().quit()
 
 func _on_restart_button_game_over_pressed():
-	CharacterData.reset()
+	CharacterConfig.reset()
+	WeaponsConfig.reset()
 	pauseMenu()
 	unload_level()
 	load_level(current_level_name)

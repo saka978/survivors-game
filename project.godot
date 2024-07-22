@@ -81,10 +81,11 @@ config/icon="res://icon.png"
 
 [autoload]
 
-CharacterData="*res://config/character_config.gd"
+CharacterConfig="*res://config/character_config.gd"
 EnemyConfig="*res://config/enemy_config.gd"
 InterractablesConfig="*res://config/interractables_config.gd"
 ObjectivesConfig="*res://config/objectives_config.gd"
+WeaponsConfig="*res://config/weapons_config.gd"
 
 [display]
 
