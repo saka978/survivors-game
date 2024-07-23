@@ -1,28 +1,147 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgq08ejp85xkg"]
+[gd_scene load_steps=7 format=3 uid="uid://bgq08ejp85xkg"]
 
 [ext_resource type="Script" path="res://scenes/home/home.gd" id="1_8m1a6"]
-[ext_resource type="PackedScene" uid="uid://cwvcbb4gc6cth" path="res://map_elements/tree/tree.tscn" id="2_jhud2"]
-[ext_resource type="PackedScene" uid="uid://d2ul1nkfkns26" path="res://map_elements/door/door.tscn" id="6_8h0ms"]
+[ext_resource type="Texture2D" uid="uid://vtfvia7a2geq" path="res://scenes/home/Patient.png" id="3_uctvn"]
+[ext_resource type="Texture2D" uid="uid://bvnes0dy8ps1n" path="res://scenes/home/Hospital-Bed.png" id="4_df5qd"]
+[ext_resource type="Texture2D" uid="uid://cc6wj61e06yuw" path="res://scenes/home/Door.png" id="5_u385c"]
+[ext_resource type="PackedScene" uid="uid://d2ul1nkfkns26" path="res://map_elements/portal/portal.tscn" id="6_8h0ms"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmf3a"]
+size = Vector2(1710.7, 21.2889)
 
 [node name="Node2D" type="Node2D"]
+z_index = -30
+position = Vector2(-107, 3.8147e-06)
+scale = Vector2(1.10914, 1.10914)
 script = ExtResource("1_8m1a6")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -30
+[node name="Ceiling" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(47.8992, 4.34461)
+color = Color(0.737255, 0.717647, 0.654902, 1)
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="Wall" type="ColorRect" parent="."]
+z_index = -1
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(47.8619, 26.8646)
+color = Color(0.686275, 0.666667, 0.596078, 1)
 
-[node name="Tree" parent="." instance=ExtResource("2_jhud2")]
-position = Vector2(324, 777)
+[node name="Floor" type="ColorRect" parent="."]
+offset_top = 733.0
+offset_right = 1914.0
+offset_bottom = 1083.0
+scale = Vector2(1.00335, 1.01525)
+color = Color(0.403922, 0.556863, 0.584314, 1)
+
+[node name="PlyntusasNx" type="ColorRect" parent="."]
+offset_left = -1.0
+offset_top = 735.0
+offset_right = 39.0
+offset_bottom = 775.0
+scale = Vector2(47.9718, -0.836813)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 276.79
+offset_top = 78.4388
+offset_right = 316.79
+offset_bottom = 118.439
+scale = Vector2(8.03822, 0.426161)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect"]
+z_index = 1
+layout_mode = 0
+offset_left = 4.66751e-05
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.00236, 0.5689)
+color = Color(0.623529, 0.384314, 0.207843, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 1061.18
+offset_top = 80.242
+offset_right = 1101.18
+offset_bottom = 120.242
+scale = Vector2(8.03822, 0.426161)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect2"]
+z_index = 1
+layout_mode = 0
+offset_left = 4.66751e-05
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.00236, 0.5689)
+color = Color(0.623529, 0.384314, 0.207843, 1)
 
 [node name="Portal" parent="." instance=ExtResource("6_8h0ms")]
-position = Vector2(1460, 536)
+light_mask = 0
+position = Vector2(541.859, 774.471)
+scale = Vector2(2.14587, 1.77769)
+
+[node name="Sprite2D" type="Sprite2D" parent="Portal"]
+position = Vector2(2.94108, -41.5883)
+scale = Vector2(0.157256, 0.157256)
+texture = ExtResource("3_uctvn")
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(953, 542)
+position = Vector2(179.418, 870.941)
+
+[node name="HospitalBed" type="Sprite2D" parent="."]
+position = Vector2(1081.01, 674.393)
+scale = Vector2(0.0767401, 0.0743275)
+texture = ExtResource("4_df5qd")
+
+[node name="Door" type="Sprite2D" parent="."]
+position = Vector2(1585.01, 482.354)
+scale = Vector2(0.600269, 0.600269)
+texture = ExtResource("5_u385c")
+
+[node name="BorderUp" type="StaticBody2D" parent="."]
+light_mask = 0
+visibility_layer = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderUp"]
+light_mask = 0
+position = Vector2(957.494, 336.295)
+scale = Vector2(1.11731, -31.5088)
+shape = SubResource("RectangleShape2D_fmf3a")
+
+[node name="BorderDown" type="StaticBody2D" parent="."]
+light_mask = 0
+visibility_layer = 7
+position = Vector2(95.5691, 972.822)
+scale = Vector2(0.906267, 0.153842)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderDown"]
+light_mask = 0
+position = Vector2(957.494, 336.295)
+scale = Vector2(1.11731, -31.5088)
+shape = SubResource("RectangleShape2D_fmf3a")
+
+[node name="BorderLeft" type="StaticBody2D" parent="."]
+light_mask = 0
+visibility_layer = 7
+position = Vector2(2.70478, 668.082)
+scale = Vector2(0.0494079, 0.621605)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderLeft"]
+light_mask = 0
+position = Vector2(957.494, 336.295)
+scale = Vector2(1.11731, -31.5088)
+shape = SubResource("RectangleShape2D_fmf3a")
+
+[node name="BorderRight" type="StaticBody2D" parent="."]
+light_mask = 0
+visibility_layer = 7
+position = Vector2(1827.53, 664.476)
+scale = Vector2(0.0494079, 0.621605)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderRight"]
+light_mask = 0
+position = Vector2(957.494, 336.295)
+scale = Vector2(1.11731, -31.5088)
+shape = SubResource("RectangleShape2D_fmf3a")
 
 [connection signal="body_entered" from="Portal" to="." method="_on_portal_body_entered"]

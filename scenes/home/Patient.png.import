@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfc2d2nq4honr"
-path="res://.godot/imported/portal.png-45a9458d75eae4751dd88a2ca0fc4110.ctex"
+uid="uid://vtfvia7a2geq"
+path="res://.godot/imported/Patient.png-ec3fcb709128665b1811ae3a491b7ad8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://map_elements/door/portal.png"
-dest_files=["res://.godot/imported/portal.png-45a9458d75eae4751dd88a2ca0fc4110.ctex"]
+source_file="res://scenes/home/Patient.png"
+dest_files=["res://.godot/imported/Patient.png-ec3fcb709128665b1811ae3a491b7ad8.ctex"]
 
 [params]
 
