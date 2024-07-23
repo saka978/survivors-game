@@ -62,7 +62,7 @@ func play_slime_death(position: Vector2):
 	%SlimeDeath.play()
 	ObjectivesConfig.LEVEL_1_SLIME_COUNTER += 1
 	if(ObjectivesConfig.LEVEL_1_SLIME_COUNTER == ObjectivesConfig.LEVEL_1_SLIMES):
-		var home_portal = preload("res://map_elements/door/door.tscn").instantiate()
+		var home_portal = preload("res://map_elements/portal/portal.tscn").instantiate()
 		home_portal.position = position
 		add_child(home_portal)
 		home_portal.change_scene.connect(self._on_change_scene)

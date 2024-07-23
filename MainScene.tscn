@@ -104,11 +104,32 @@ text = "Slimes Killed: 0 / 30"
 
 [node name="SceneLoader" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(93, -63)
+position = Vector2(2, 2)
+
+[node name="AmmoLabel" type="Label" parent="SceneLoader"]
+unique_name_in_owner = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 802.0
+offset_top = 969.0
+offset_right = 1089.0
+offset_bottom = 1038.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Ammo: 10"
+
+[node name="Camera2D" type="Camera2D" parent="SceneLoader"]
+position = Vector2(958, 537)
+limit_left = 0
+limit_top = 0
+limit_right = 1917
+limit_bottom = 1080
+editor_draw_limits = true
 
 [node name="Player" parent="SceneLoader" instance=ExtResource("2_bg6cf")]
 unique_name_in_owner = true
-position = Vector2(866, 603)
+position = Vector2(958, 537)
 
 [node name="Path2D" type="Path2D" parent="SceneLoader/Player"]
 position = Vector2(-866, -603)
@@ -126,20 +147,10 @@ position = Vector2(-959, -538)
 stream = ExtResource("3_bwk3v")
 volume_db = -9.124
 
-[node name="AmmoLabel" type="Label" parent="SceneLoader/Player"]
-unique_name_in_owner = true
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = -156.0
-offset_top = 432.0
-offset_right = 131.0
-offset_bottom = 501.0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 50
-text = "Ammo: 10"
-
 [node name="SoundEffects" type="AudioStreamPlayer" parent="SceneLoader/Player"]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="SceneLoader/Player"]
+remote_path = NodePath("../../Camera2D")
 
 [connection signal="pressed" from="EscapeMenu/ColorRect/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="EscapeMenu/ColorRect/QuitButton" to="." method="_on_quit_button_pressed"]
