@@ -16,6 +16,7 @@ var spawned_mobs = []
 func _ready():
 	ObjectivesConfig.resetObjectives()
 	WeaponsConfig.reset()
+	CharacterConfig.reset()
 	player.global_position = %SpawnPoint.global_position
 	goal_hud.show()
 	goal_label.text = "Slimes Killed: %d / %d" % [ObjectivesConfig.LEVEL_1_SLIME_COUNTER, ObjectivesConfig.LEVEL_1_SLIMES]
@@ -67,6 +68,7 @@ func play_slime_death(position: Vector2):
 		home_portal.change_scene.connect(self._on_change_scene)
 		spawn_mobs = false
 		clear_mobs()
+		WeaponsConfig.pistol_unlocked = true
 		return
 		
 	if randi() % 100 < InterractablesConfig.HEART_UP_CHANCE:

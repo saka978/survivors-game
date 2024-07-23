@@ -12,19 +12,20 @@ var current_level_name
 
 func _ready():
 	load_level("main_menu")
-	current_weapon = pistol.instantiate()
+	current_weapon = scalpel.instantiate()
 	%Player.add_child(current_weapon)
-	%AmmoLabel.show()
+	%AmmoLabel.hide()
 	
 func _physics_process(delta):
 	if Input.is_action_just_pressed("esc_menu"):
 		escapeMenu()
 	elif Input.is_action_just_pressed("weapon_1"):
-		switch_weapon(pistol)
-		%AmmoLabel.show()
-	elif Input.is_action_just_pressed("weapon_2"):
 		switch_weapon(scalpel)
 		%AmmoLabel.hide()
+	elif Input.is_action_just_pressed("weapon_2"):
+		if WeaponsConfig.pistol_unlocked:
+			switch_weapon(pistol)
+			%AmmoLabel.show()
 		
 	%AmmoLabel.text = "Ammo: " + str(WeaponsConfig.current_ammo_pistol)
 
