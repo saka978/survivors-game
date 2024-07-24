@@ -86,7 +86,7 @@ light_mask = 0
 position = Vector2(541.859, 774.471)
 scale = Vector2(2.14587, 1.77769)
 
-[node name="Sprite2D" type="Sprite2D" parent="Portal"]
+[node name="Sprite2D2" type="Sprite2D" parent="Portal"]
 position = Vector2(2.94108, -41.5883)
 scale = Vector2(0.157256, 0.157256)
 texture = ExtResource("3_uctvn")
