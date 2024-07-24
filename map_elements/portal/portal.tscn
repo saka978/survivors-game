@@ -15,4 +15,6 @@ position = Vector2(2, 0)
 scale = Vector2(1.23672, 1.81956)
 shape = SubResource("CircleShape2D_ak3a6")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

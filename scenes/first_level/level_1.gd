@@ -64,9 +64,12 @@ func play_slime_death(position: Vector2):
 	%SlimeDeath.play()
 	ObjectivesConfig.LEVEL_1_SLIME_COUNTER += 1
 	if(ObjectivesConfig.LEVEL_1_SLIME_COUNTER == ObjectivesConfig.LEVEL_1_SLIMES):
+		var portal_texture = preload("res://map_elements/portal/portal.png")
 		var home_portal = preload("res://map_elements/portal/portal.tscn").instantiate()
 		home_portal.position = position
 		add_child(home_portal)
+		%PortalImage.texture = portal_texture
+		%PortalImage.global_position = home_portal.global_position
 		home_portal.change_scene.connect(self._on_change_scene)
 		spawn_mobs = false
 		clear_mobs()
