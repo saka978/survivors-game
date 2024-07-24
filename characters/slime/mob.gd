@@ -21,7 +21,7 @@ func take_damage():
 	if health <= 0:
 		slime_death.emit(%Slime.global_position)
 		queue_free()
-		const SMOKE_SCENE = preload("res://smoke_explosion/smoke_explosion.tscn")
+		const SMOKE_SCENE = preload("res://characters/slime/smoke_explosion/smoke_explosion.tscn")
 		var smoke = SMOKE_SCENE.instantiate()
 		get_parent().add_child(smoke)
 		

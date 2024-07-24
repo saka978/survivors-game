@@ -1,20 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://dovwvwmd44yof"]
+[gd_scene load_steps=6 format=3 uid="uid://dovwvwmd44yof"]
 
 [ext_resource type="Script" path="res://scenes/first_level/level_1.gd" id="1_fkmyj"]
 [ext_resource type="AudioStream" uid="uid://dmbgtuidufmxj" path="res://scenes/first_level/spawn_effect.mp3" id="4_pdow5"]
 [ext_resource type="PackedScene" uid="uid://cwvcbb4gc6cth" path="res://map_elements/tree/tree.tscn" id="4_qwoip"]
+[ext_resource type="PackedScene" uid="uid://d3a21bybx6os5" path="res://helpers/camera/camera_limiter.tscn" id="5_pt4lf"]
 [ext_resource type="AudioStream" uid="uid://obexwgmx5cqt" path="res://assets/audio/slime-dieded.mp3" id="6_06b38"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_fkmyj")
 
-[node name="BackgroundColor" type="CanvasLayer" parent="."]
+[node name="CameraLimiter" parent="." instance=ExtResource("5_pt4lf")]
+unique_name_in_owner = true
+offset_right = 3000.0
+offset_bottom = 1500.0
+scale = Vector2(1.59024, 1.84031)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -30
 
-[node name="ColorRect" type="ColorRect" parent="BackgroundColor"]
-offset_right = 1914.0
-offset_bottom = 1077.0
+[node name="BackgroundTexture" type="ColorRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_right = 4894.0
+offset_bottom = 2823.0
+scale = Vector2(0.976436, 0.979252)
 color = Color(0.188235, 0.411765, 0, 1)
 
 [node name="SpawnTimer" type="Timer" parent="."]
@@ -29,9 +38,12 @@ pitch_scale = 1.88
 [node name="Tree" parent="." instance=ExtResource("4_qwoip")]
 position = Vector2(872, 518)
 
+[node name="Tree" parent="Tree" instance=ExtResource("4_qwoip")]
+position = Vector2(244.545, 290.909)
+
 [node name="SpawnPoint" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(864, 242)
+position = Vector2(1096, 505)
 
 [node name="SpawnEffect" type="AudioStreamPlayer2D" parent="SpawnPoint"]
 unique_name_in_owner = true

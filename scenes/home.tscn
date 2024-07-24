@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgq08ejp85xkg"]
+[gd_scene load_steps=8 format=3 uid="uid://bgq08ejp85xkg"]
 
 [ext_resource type="Script" path="res://scenes/home/home.gd" id="1_8m1a6"]
+[ext_resource type="PackedScene" uid="uid://d3a21bybx6os5" path="res://helpers/camera/camera_limiter.tscn" id="2_4lsqw"]
 [ext_resource type="Texture2D" uid="uid://vtfvia7a2geq" path="res://scenes/home/Patient.png" id="3_uctvn"]
 [ext_resource type="Texture2D" uid="uid://bvnes0dy8ps1n" path="res://scenes/home/Hospital-Bed.png" id="4_df5qd"]
 [ext_resource type="Texture2D" uid="uid://cc6wj61e06yuw" path="res://scenes/home/Door.png" id="5_u385c"]
@@ -14,6 +15,12 @@ z_index = -30
 position = Vector2(-107, 3.8147e-06)
 scale = Vector2(1.10914, 1.10914)
 script = ExtResource("1_8m1a6")
+
+[node name="CameraLimiter" parent="." instance=ExtResource("2_4lsqw")]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(47.9772, 27.1509)
 
 [node name="Ceiling" type="ColorRect" parent="."]
 offset_right = 40.0
