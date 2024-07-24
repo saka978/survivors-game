@@ -123,7 +123,7 @@ text = "Ammo: 10"
 position = Vector2(958, 537)
 limit_left = 0
 limit_top = 0
-limit_right = 1917
+limit_right = 1922
 limit_bottom = 1080
 editor_draw_limits = true
 

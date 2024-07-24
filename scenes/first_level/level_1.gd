@@ -12,6 +12,7 @@ var spawned_mobs = []
 @onready var goal_label = get_node("/root/MainScene/GoalHud/GoalLabel")
 @onready var spawnBorders = get_node("/root/MainScene/SceneLoader/Player/Path2D/PathFollow2D")
 @onready var sound_effect = get_node("/root/MainScene/SceneLoader/Player/SoundEffects")
+@onready var camera = get_node("/root/MainScene/SceneLoader/Camera2D")
 
 func _ready():
 	ObjectivesConfig.resetObjectives()
@@ -21,7 +22,8 @@ func _ready():
 	goal_hud.show()
 	goal_label.text = "Slimes Killed: %d / %d" % [ObjectivesConfig.LEVEL_1_SLIME_COUNTER, ObjectivesConfig.LEVEL_1_SLIMES]
 	%SpawnEffect.play()
-	
+	$CameraLimiter.setCameraLimits()
+
 func _physics_process(delta):
 	goal_label.text = "Slimes Killed: %d / %d" % [ObjectivesConfig.LEVEL_1_SLIME_COUNTER, ObjectivesConfig.LEVEL_1_SLIMES]
 

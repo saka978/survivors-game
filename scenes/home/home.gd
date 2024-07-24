@@ -5,6 +5,7 @@ signal change_scene(path: String)
 @onready var player = get_node("/root/MainScene/SceneLoader/Player")
 
 func _ready():
+	$CameraLimiter.setCameraLimits()
 	player.global_position = %SpawnPoint.global_position 
 
 func _on_portal_body_entered(body):
