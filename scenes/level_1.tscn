@@ -1,10 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://dovwvwmd44yof"]
+[gd_scene load_steps=10 format=3 uid="uid://dovwvwmd44yof"]
 
 [ext_resource type="Script" path="res://scenes/first_level/level_1.gd" id="1_fkmyj"]
 [ext_resource type="AudioStream" uid="uid://dmbgtuidufmxj" path="res://scenes/first_level/spawn_effect.mp3" id="4_pdow5"]
 [ext_resource type="PackedScene" uid="uid://cwvcbb4gc6cth" path="res://map_elements/tree/tree.tscn" id="4_qwoip"]
 [ext_resource type="PackedScene" uid="uid://d3a21bybx6os5" path="res://helpers/camera/camera_limiter.tscn" id="5_pt4lf"]
 [ext_resource type="AudioStream" uid="uid://obexwgmx5cqt" path="res://assets/audio/slime-dieded.mp3" id="6_06b38"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_leic3"]
+size = Vector2(20.4986, 870.577)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihcjb"]
+size = Vector2(1206.59, 20.4695)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1ak0"]
+size = Vector2(131, 2883)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhd48"]
+size = Vector2(4777, 114)
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -49,6 +61,29 @@ position = Vector2(1096, 505)
 unique_name_in_owner = true
 position = Vector2(-864, -242)
 stream = ExtResource("4_pdow5")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-54, 1416.5)
+scale = Vector2(5.26866, 3.36903)
+shape = SubResource("RectangleShape2D_leic3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2414.49, -25)
+scale = Vector2(4.00221, 2.44266)
+shape = SubResource("RectangleShape2D_ihcjb")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(4843.5, 1441.5)
+shape = SubResource("RectangleShape2D_s1ak0")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2388.5, 2821)
+shape = SubResource("RectangleShape2D_uhd48")
+
+[node name="PortalImage" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_timer_timeout"]
 [connection signal="finished" from="SpawnPoint/SpawnEffect" to="." method="_on_spawn_effect_finished"]
