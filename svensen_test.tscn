@@ -1,0 +1,502 @@
+[gd_scene load_steps=19 format=3 uid="uid://c5le210f3in26"]
+
+[ext_resource type="Texture2D" uid="uid://b6awg6crqnuos" path="res://characters/Svensen2/Svensen2-shoulderL.png" id="1_2ftyl"]
+[ext_resource type="Texture2D" uid="uid://ckq02pd75diah" path="res://characters/Svensen2/Svensen2-armL.png" id="2_27ay8"]
+[ext_resource type="Texture2D" uid="uid://clprt2cmk6s25" path="res://characters/Svensen2/Svensen2-bod.png" id="3_1xlpi"]
+[ext_resource type="Texture2D" uid="uid://cmtoye3e4aas5" path="res://characters/Svensen2/Svensen2-legL.png" id="4_ipa3a"]
+[ext_resource type="Texture2D" uid="uid://cjx4etbna3dc6" path="res://characters/Svensen2/Svensen2-coatL.png" id="5_gllja"]
+[ext_resource type="Texture2D" uid="uid://biexlaebostly" path="res://characters/Svensen2/Svensen2-legR.png" id="6_58rp5"]
+[ext_resource type="Texture2D" uid="uid://fkin65fbbgcr" path="res://characters/Svensen2/Svensen2-coatR.png" id="7_bgweo"]
+[ext_resource type="Texture2D" uid="uid://ckw3rgnbvsjo1" path="res://characters/Svensen2/Svensen2-shoulderR.png" id="8_mheb1"]
+[ext_resource type="Texture2D" uid="uid://cdtocxlgs7di1" path="res://characters/Svensen2/Svensen2-armR.png" id="9_c47pn"]
+[ext_resource type="Texture2D" uid="uid://bynu8lwo3ilc6" path="res://characters/Svensen2/Svensen2-head.png" id="10_d67ys"]
+[ext_resource type="Texture2D" uid="uid://cndskyvol5ffu" path="res://characters/Svensen2/Svensen2-shoulder-piece.png" id="11_mhpr3"]
+[ext_resource type="Texture2D" uid="uid://dd0kikvvmd8pa" path="res://characters/Svensen2/Svensen2.png" id="12_pcqut"]
+
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_fsx4s"]
+target_nodepath = NodePath("../IKTargetArmL")
+flip_bend_direction = true
+joint_one_bone_idx = 6
+joint_one_bone2d_node = NodePath("Base/Body/ShoulderL")
+joint_two_bone_idx = 7
+joint_two_bone2d_node = NodePath("Base/Body/ShoulderL/ArmL")
+
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_3c8d6"]
+target_nodepath = NodePath("../IKTargetArmR")
+joint_one_bone_idx = 4
+joint_one_bone2d_node = NodePath("Base/Body/ShoulderR")
+joint_two_bone_idx = 5
+joint_two_bone2d_node = NodePath("Base/Body/ShoulderR/ArmR")
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_dwokj"]
+modification_count = 2
+modifications/0 = SubResource("SkeletonModification2DTwoBoneIK_fsx4s")
+modifications/1 = SubResource("SkeletonModification2DTwoBoneIK_3c8d6")
+
+[sub_resource type="Animation" id="Animation_up1xr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PartsAndSkelotonContainer/Skeleton/Base/LegR:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PartsAndSkelotonContainer/Skeleton/Base/LegL:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PartsAndSkelotonContainer/Skeleton/Base/CoatR:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PartsAndSkelotonContainer/Skeleton/Base/CoatL:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PartsAndSkelotonContainer/Skeleton/Base:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(52, -584)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PartsAndSkelotonContainer/Skeleton/Base/Body/ShoulderPad:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.28463e-05]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PartsAndSkelotonContainer/Skeleton/Base/Body/Head:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12, -96)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PartsAndSkelotonContainer/Skeleton/Base/Body/ShoulderR:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.0451589]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PartsAndSkelotonContainer/Skeleton/Base/Body/ShoulderL:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("PartsAndSkelotonContainer/Skeleton/Base/Body/ShoulderR:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-217, 12)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("PartsAndSkelotonContainer/Skeleton/Base/Body/ShoulderL:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(92, 60)]
+}
+
+[sub_resource type="Animation" id="Animation_vxua6"]
+resource_name = "Walking"
+length = 0.800003
+loop_mode = 1
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PartsAndSkelotonContainer/Skeleton/Base/LegR:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333, 0.6, 0.666667, 0.733333, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.319191, 0.678498, 1.0123, 0.678498, 0.319191, 0.0, -0.335974, -0.652387, -0.946749, -0.652387, -0.335974, -1.66613e-05]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PartsAndSkelotonContainer/Skeleton/Base/LegL:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333, 0.6, 0.666667, 0.733333, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.386047, -0.663796, -0.815919, -0.663796, -0.386047, 0.0, 0.338942, 0.731764, 1.15348, 0.731764, 0.338942, 1.68085e-05]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PartsAndSkelotonContainer/Skeleton/Base/CoatR:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.185214]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PartsAndSkelotonContainer/Skeleton/Base/CoatL:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.140561]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PartsAndSkelotonContainer/Skeleton/Base:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.599999, 0.799999),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(52, -584), Vector2(52, -700), Vector2(52, -584), Vector2(52, -700), Vector2(52, -584)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PartsAndSkelotonContainer/Skeleton/Base/Body/ShoulderPad:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.4, 0.666666, 0.799999),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-3.28463e-05, 0.134686, -3.28463e-05, 0.134686, -3.28463e-05]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PartsAndSkelotonContainer/Skeleton/Base/Body/Head:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.4, 0.533333, 0.799999),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-12, -96), Vector2(-12, -84.6667), Vector2(-12, -96), Vector2(-12, -84.6667), Vector2(-12, -96)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = false
+tracks/7/path = NodePath("PartsAndSkelotonContainer/Skeleton/Base/Body/ShoulderR:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.799999),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.0451589, -1.22578, -0.0451589]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = false
+tracks/8/path = NodePath("PartsAndSkelotonContainer/Skeleton/Base/Body/ShoulderL:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.799999),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.592881, 0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("PartsAndSkelotonContainer/Skeleton/Base/Body/ShoulderR:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.599999, 0.799999),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-217, 12), Vector2(-218, -15), Vector2(-217, 12), Vector2(-218, -15), Vector2(-217, 12)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("PartsAndSkelotonContainer/Skeleton/Base/Body/ShoulderL:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.799999),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(92, 60), Vector2(92, 44), Vector2(92, 60)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ic4o"]
+_data = {
+"RESET": SubResource("Animation_up1xr"),
+"Walking": SubResource("Animation_vxua6")
+}
+
+[node name="Svensen2-v2" type="Node2D"]
+
+[node name="PartsAndSkelotonContainer" type="Node2D" parent="."]
+
+[node name="Parts" type="Node2D" parent="PartsAndSkelotonContainer"]
+
+[node name="Svensen2-shoulderL" type="Sprite2D" parent="PartsAndSkelotonContainer/Parts"]
+position = Vector2(42.0107, -538.047)
+scale = Vector2(0.999839, 0.999839)
+texture = ExtResource("1_2ftyl")
+
+[node name="Svensen2-armL" type="Sprite2D" parent="PartsAndSkelotonContainer/Parts"]
+position = Vector2(41.0108, -537.047)
+scale = Vector2(0.999839, 0.999839)
+texture = ExtResource("2_27ay8")
+
+[node name="Svensen2-bod" type="Sprite2D" parent="PartsAndSkelotonContainer/Parts"]
+position = Vector2(41, -540)
+texture = ExtResource("3_1xlpi")
+
+[node name="Svensen2-legL" type="Sprite2D" parent="PartsAndSkelotonContainer/Parts"]
+position = Vector2(39.9993, -536.967)
+scale = Vector2(0.999856, 0.999856)
+texture = ExtResource("4_ipa3a")
+
+[node name="Svensen2-coatL" type="Sprite2D" parent="PartsAndSkelotonContainer/Parts"]
+position = Vector2(40.0177, -538.001)
+scale = Vector2(0.999829, 0.999829)
+texture = ExtResource("5_gllja")
+
+[node name="Svensen2-legR" type="Sprite2D" parent="PartsAndSkelotonContainer/Parts"]
+position = Vector2(41.5736, -535.192)
+scale = Vector2(0.999854, 0.999854)
+texture = ExtResource("6_58rp5")
+
+[node name="Svensen2-coatR" type="Sprite2D" parent="PartsAndSkelotonContainer/Parts"]
+position = Vector2(40.9708, -536.996)
+scale = Vector2(0.999829, 0.999829)
+texture = ExtResource("7_bgweo")
+
+[node name="Svensen2-shoulderR" type="Sprite2D" parent="PartsAndSkelotonContainer/Parts"]
+position = Vector2(46.9643, -550.047)
+rotation = -0.0451589
+scale = Vector2(0.999857, 0.999857)
+texture = ExtResource("8_mheb1")
+
+[node name="Svensen2-armR" type="Sprite2D" parent="PartsAndSkelotonContainer/Parts"]
+position = Vector2(45.4755, -544.776)
+rotation = -0.0177148
+scale = Vector2(0.999856, 0.999856)
+texture = ExtResource("9_c47pn")
+
+[node name="Svensen2-head" type="Sprite2D" parent="PartsAndSkelotonContainer/Parts"]
+position = Vector2(40.6409, -536.887)
+rotation = 0.00302655
+texture = ExtResource("10_d67ys")
+
+[node name="Svensen2-shoulder-piece" type="Sprite2D" parent="PartsAndSkelotonContainer/Parts"]
+position = Vector2(42.9852, -537.067)
+rotation = -3.28463e-05
+scale = Vector2(0.999828, 0.999828)
+texture = ExtResource("11_mhpr3")
+
+[node name="Skeleton" type="Skeleton2D" parent="PartsAndSkelotonContainer"]
+visible = false
+modification_stack = SubResource("SkeletonModificationStack2D_dwokj")
+
+[node name="Base" type="Bone2D" parent="PartsAndSkelotonContainer/Skeleton"]
+position = Vector2(52, -584)
+rest = Transform2D(1, 0, 0, 1, 52, -584)
+
+[node name="Body" type="Bone2D" parent="PartsAndSkelotonContainer/Skeleton/Base"]
+position = Vector2(-36, -306)
+rest = Transform2D(1, 0, 0, 1, -36, -306)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsAndSkelotonContainer/Skeleton/Base/Body"]
+position = Vector2(25, 350)
+remote_path = NodePath("../../../../Parts/Svensen2-bod")
+
+[node name="Head" type="Bone2D" parent="PartsAndSkelotonContainer/Skeleton/Base/Body"]
+position = Vector2(-12, -96)
+rotation = 0.00302655
+rest = Transform2D(0.999995, 0.00302655, -0.00302655, 0.999995, -12, -96)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsAndSkelotonContainer/Skeleton/Base/Body/Head"]
+position = Vector2(38, 449)
+remote_path = NodePath("../../../../../Parts/Svensen2-head")
+
+[node name="ShoulderPad" type="Bone2D" parent="PartsAndSkelotonContainer/Skeleton/Base/Body"]
+position = Vector2(-128, -8)
+rotation = -3.28463e-05
+scale = Vector2(0.999828, 0.999828)
+rest = Transform2D(1, -3.28463e-05, 3.28463e-05, 1, -128, -8)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsAndSkelotonContainer/Skeleton/Base/Body/ShoulderPad"]
+position = Vector2(155, 361)
+remote_path = NodePath("../../../../../Parts/Svensen2-shoulder-piece")
+
+[node name="ShoulderR" type="Bone2D" parent="PartsAndSkelotonContainer/Skeleton/Base/Body"]
+position = Vector2(-217, 12)
+rotation = -0.0451589
+scale = Vector2(0.999857, 0.999857)
+rest = Transform2D(0.998981, -0.0451435, 0.0451435, 0.998981, -217, 12)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsAndSkelotonContainer/Skeleton/Base/Body/ShoulderR"]
+position = Vector2(232.94, 338.861)
+remote_path = NodePath("../../../../../Parts/Svensen2-shoulderR")
+
+[node name="ArmR" type="Bone2D" parent="PartsAndSkelotonContainer/Skeleton/Base/Body/ShoulderR"]
+position = Vector2(-134.945, 195.107)
+rotation = 0.0274441
+scale = Vector2(1, 1)
+rest = Transform2D(0.999623, 0.0274407, -0.0274407, 0.999623, -134.945, 195.107)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsAndSkelotonContainer/Skeleton/Base/Body/ShoulderR/ArmR"]
+position = Vector2(370.109, 138.85)
+remote_path = NodePath("../../../../../../Parts/Svensen2-armR")
+
+[node name="ShoulderL" type="Bone2D" parent="PartsAndSkelotonContainer/Skeleton/Base/Body"]
+position = Vector2(92, 60)
+scale = Vector2(0.999839, 0.999839)
+rest = Transform2D(1, 0, 0, 1, 92, 60)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsAndSkelotonContainer/Skeleton/Base/Body/ShoulderL"]
+position = Vector2(-66, 292)
+remote_path = NodePath("../../../../../Parts/Svensen2-shoulderL")
+
+[node name="ArmL" type="Bone2D" parent="PartsAndSkelotonContainer/Skeleton/Base/Body/ShoulderL"]
+position = Vector2(104, 126)
+rest = Transform2D(1, 0, 0, 1, 104, 126)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsAndSkelotonContainer/Skeleton/Base/Body/ShoulderL/ArmL"]
+position = Vector2(-171, 167)
+remote_path = NodePath("../../../../../../Parts/Svensen2-armL")
+
+[node name="LegR" type="Bone2D" parent="PartsAndSkelotonContainer/Skeleton/Base"]
+position = Vector2(-130, 268)
+scale = Vector2(0.999854, 0.999854)
+rest = Transform2D(0.999998, 0.00186582, -0.00186582, 0.999998, -130, 268)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsAndSkelotonContainer/Skeleton/Base/LegR"]
+position = Vector2(119.591, -219.224)
+remote_path = NodePath("../../../../Parts/Svensen2-legR")
+
+[node name="LegL" type="Bone2D" parent="PartsAndSkelotonContainer/Skeleton/Base"]
+position = Vector2(-17, 280)
+scale = Vector2(0.999856, 0.999856)
+rest = Transform2D(1, 0, 0, 1, -17, 280)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsAndSkelotonContainer/Skeleton/Base/LegL"]
+position = Vector2(5, -233)
+remote_path = NodePath("../../../../Parts/Svensen2-legL")
+
+[node name="CoatR" type="Bone2D" parent="PartsAndSkelotonContainer/Skeleton/Base"]
+position = Vector2(-182, 70)
+scale = Vector2(0.999829, 0.999829)
+rest = Transform2D(1, 0, 0, 1, -182, 70)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsAndSkelotonContainer/Skeleton/Base/CoatR"]
+position = Vector2(171, -23)
+remote_path = NodePath("../../../../Parts/Svensen2-coatR")
+
+[node name="CoatL" type="Bone2D" parent="PartsAndSkelotonContainer/Skeleton/Base"]
+position = Vector2(91, 38)
+scale = Vector2(0.999829, 0.999829)
+rest = Transform2D(1, 0, 0, 1, 91, 38)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PartsAndSkelotonContainer/Skeleton/Base/CoatL"]
+position = Vector2(-103, 8)
+remote_path = NodePath("../../../../Parts/Svensen2-coatL")
+
+[node name="IKTargetArmR" type="Node2D" parent="PartsAndSkelotonContainer"]
+visible = false
+position = Vector2(170, -926)
+
+[node name="IKTargetArmL" type="Node2D" parent="PartsAndSkelotonContainer"]
+visible = false
+position = Vector2(404, -730)
+
+[node name="Svensen2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(42, -537)
+texture = ExtResource("12_pcqut")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8ic4o")
+}

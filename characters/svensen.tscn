@@ -1,0 +1,117 @@
+[gd_scene load_steps=13 format=3 uid="uid://br505cuj7hpmm"]
+
+[ext_resource type="Texture2D" path="res://characters/Svensen - arm - L.png" id="1_vqoja"]
+[ext_resource type="Texture2D" path="res://characters/Svensen - shoulder - L.png" id="2_sib1n"]
+[ext_resource type="Texture2D" path="res://characters/Svensen - arm - R.png" id="3_c1l2b"]
+[ext_resource type="Texture2D" path="res://characters/Svensen - shoulder - R.png" id="4_u4l1m"]
+[ext_resource type="Texture2D" path="res://characters/Svensen - body.png" id="5_rybrl"]
+[ext_resource type="Texture2D" path="res://characters/Svensen - head.png" id="6_4htbi"]
+[ext_resource type="Texture2D" path="res://characters/Svensen - leg - R.png" id="7_7hd3w"]
+[ext_resource type="Texture2D" path="res://characters/Svensen - coat - R.png" id="8_02pd1"]
+[ext_resource type="Texture2D" path="res://characters/Svensen - leg - L.png" id="9_tixdw"]
+[ext_resource type="Texture2D" path="res://characters/Svensen - coat -L.png" id="10_ocfri"]
+[ext_resource type="Texture2D" path="res://characters/Svensen - Copy.png" id="11_ducje"]
+[ext_resource type="Texture2D" uid="uid://dvgfmy6vtvjji" path="res://characters/slime/slime_body.png" id="12_012cm"]
+
+[node name="Svensen" type="Node2D"]
+
+[node name="SkelyContainer" type="Node2D" parent="."]
+
+[node name="Parts" type="Node2D" parent="SkelyContainer"]
+position = Vector2(6, -100)
+scale = Vector2(0.145029, 0.113717)
+
+[node name="Svensen-Arm-L" type="Sprite2D" parent="SkelyContainer/Parts"]
+position = Vector2(-10, -1359)
+texture = ExtResource("1_vqoja")
+
+[node name="Svensen-Shoulder-L" type="Sprite2D" parent="SkelyContainer/Parts"]
+position = Vector2(-16, -1367)
+texture = ExtResource("2_sib1n")
+
+[node name="Svensen-Arm-R" type="Sprite2D" parent="SkelyContainer/Parts"]
+position = Vector2(-1117.02, -1398.21)
+scale = Vector2(6.89517, 8.79376)
+texture = ExtResource("3_c1l2b")
+
+[node name="Svensen-Shoulder-R" type="Sprite2D" parent="SkelyContainer/Parts"]
+position = Vector2(-841.211, -2303.96)
+scale = Vector2(6.89517, 8.79376)
+texture = ExtResource("4_u4l1m")
+
+[node name="Svensen-Body" type="Sprite2D" parent="SkelyContainer/Parts"]
+position = Vector2(20.6855, -2216.03)
+scale = Vector2(6.89517, 8.79376)
+texture = ExtResource("5_rybrl")
+
+[node name="Svensen-Head" type="Sprite2D" parent="SkelyContainer/Parts"]
+position = Vector2(-12, -1376)
+texture = ExtResource("6_4htbi")
+
+[node name="Svensen-Leg-R" type="Sprite2D" parent="SkelyContainer/Parts"]
+position = Vector2(-19, -1356)
+texture = ExtResource("7_7hd3w")
+
+[node name="Svensen-Coat-R" type="Sprite2D" parent="SkelyContainer/Parts"]
+position = Vector2(-16, -1375)
+texture = ExtResource("8_02pd1")
+
+[node name="Svensen-Leg-L" type="Sprite2D" parent="SkelyContainer/Parts"]
+position = Vector2(-13.7904, -1354.24)
+texture = ExtResource("9_tixdw")
+
+[node name="Svensen-Coat-l" type="Sprite2D" parent="SkelyContainer/Parts"]
+position = Vector2(-16, -1363)
+texture = ExtResource("10_ocfri")
+
+[node name="Skeleton2D" type="Skeleton2D" parent="SkelyContainer"]
+
+[node name="Base" type="Bone2D" parent="SkelyContainer/Skeleton2D"]
+position = Vector2(9, -171)
+
+[node name="Body" type="Bone2D" parent="SkelyContainer/Skeleton2D/Base"]
+position = Vector2(0, -181)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="SkelyContainer/Skeleton2D/Base/Body"]
+remote_path = NodePath("../../../../Parts/Svensen-Body")
+
+[node name="Head" type="Bone2D" parent="SkelyContainer/Skeleton2D/Base/Body"]
+position = Vector2(-5, -109)
+
+[node name="ShoulderR" type="Bone2D" parent="SkelyContainer/Skeleton2D/Base/Body"]
+position = Vector2(-125, -10)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="SkelyContainer/Skeleton2D/Base/Body/ShoulderR"]
+remote_path = NodePath("../../../../../Parts/Svensen-Shoulder-R")
+
+[node name="ArmR" type="Bone2D" parent="SkelyContainer/Skeleton2D/Base/Body/ShoulderR"]
+position = Vector2(-40, 103)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="SkelyContainer/Skeleton2D/Base/Body/ShoulderR/ArmR"]
+remote_path = NodePath("../../../../../../Parts/Svensen-Arm-R")
+
+[node name="ShoulderL" type="Bone2D" parent="SkelyContainer/Skeleton2D/Base/Body"]
+position = Vector2(98, -9)
+
+[node name="ArmL" type="Bone2D" parent="SkelyContainer/Skeleton2D/Base/Body/ShoulderL"]
+position = Vector2(39, 104)
+
+[node name="HipR" type="Bone2D" parent="SkelyContainer/Skeleton2D/Base"]
+position = Vector2(-45, 13)
+
+[node name="LegR" type="Bone2D" parent="SkelyContainer/Skeleton2D/Base/HipR"]
+position = Vector2(-3, 41)
+
+[node name="HipL" type="Bone2D" parent="SkelyContainer/Skeleton2D/Base"]
+position = Vector2(32, 12)
+
+[node name="LegL" type="Bone2D" parent="SkelyContainer/Skeleton2D/Base/HipL"]
+position = Vector2(4, 41)
+
+[node name="Svensen-Copy" type="Sprite2D" parent="."]
+position = Vector2(1178, -447)
+texture = ExtResource("11_ducje")
+
+[node name="SlimeBody" type="Sprite2D" parent="."]
+position = Vector2(1504, -276)
+texture = ExtResource("12_012cm")
